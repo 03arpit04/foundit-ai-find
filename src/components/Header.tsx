@@ -3,13 +3,14 @@ import { Button } from "@/components/ui/button";
 
 const Header = () => {
   return (
-    <header className="w-full border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
+    <header className="w-full border-b border-border glass-card sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">f</span>
+            <div className="w-8 h-8 rounded-lg flex items-center justify-center glow-effect" 
+                 style={{ background: 'var(--gradient-primary)' }}>
+              <span className="text-white font-bold text-lg">f</span>
             </div>
             <span className="text-xl font-semibold text-foreground">foundit</span>
           </Link>
@@ -32,7 +33,11 @@ const Header = () => {
               </Button>
             </Link>
             <Link to="/signup">
-              <Button size="sm">
+              <Button 
+                size="sm" 
+                className="glow-effect"
+                style={{ background: 'var(--gradient-primary)' }}
+              >
                 Sign Up
               </Button>
             </Link>

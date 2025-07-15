@@ -96,9 +96,9 @@ const Index = () => {
       {/* Hero Section - ChatGPT Style */}
       <main className="max-w-4xl mx-auto px-4">
         <div className="py-16 md:py-24 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
             What are you looking to 
-            <span className="text-primary"> buy today?</span>
+            <span className="gradient-text"> buy today?</span>
           </h1>
           
           <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto">
@@ -112,12 +112,13 @@ const Index = () => {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               onKeyPress={(e) => e.key === "Enter" && handleSearch()}
-              className="h-16 text-lg pl-6 pr-16 rounded-2xl border-2 focus:border-primary shadow-lg"
+              className="h-16 text-lg pl-6 pr-16 rounded-2xl modern-input glow-effect"
             />
             <Button 
               onClick={() => handleSearch()}
               size="lg" 
-              className="absolute right-2 top-1/2 transform -translate-y-1/2 rounded-xl h-12 w-12 p-0"
+              className="absolute right-2 top-1/2 transform -translate-y-1/2 rounded-xl h-12 w-12 p-0 glow-effect"
+              style={{ background: 'var(--gradient-primary)' }}
             >
               <Send className="h-5 w-5" />
             </Button>
@@ -148,8 +149,9 @@ const Index = () => {
           <div className="grid md:grid-cols-3 gap-8">
             {howItWorks.map((step, index) => (
               <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-primary-foreground font-bold text-xl">{step.step}</span>
+                <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 glow-effect" 
+                     style={{ background: 'var(--gradient-primary)' }}>
+                  <span className="text-white font-bold text-xl">{step.step}</span>
                 </div>
                 <h3 className="text-xl font-semibold text-foreground mb-3">{step.title}</h3>
                 <p className="text-muted-foreground">{step.description}</p>
@@ -168,10 +170,11 @@ const Index = () => {
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             {benefits.map((benefit, index) => (
-              <Card key={index} className="h-full">
+              <Card key={index} className="h-full glass-card">
                 <CardContent className="p-6 text-center h-full flex flex-col">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <benefit.icon className="h-6 w-6 text-primary" />
+                  <div className="w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-4" 
+                       style={{ background: 'var(--gradient-accent)' }}>
+                    <benefit.icon className="h-6 w-6 text-white" />
                   </div>
                   <h3 className="text-xl font-semibold text-foreground mb-4">{benefit.title}</h3>
                   <p className="text-muted-foreground flex-1">{benefit.description}</p>
@@ -187,11 +190,11 @@ const Index = () => {
             What Our Users Say
           </h2>
           <div className="relative max-w-2xl mx-auto">
-            <Card>
+            <Card className="glass-card">
               <CardContent className="p-8 text-center">
                 <div className="flex justify-center mb-4">
                   {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                    <Star key={i} className="h-5 w-5 text-accent fill-current" />
                   ))}
                 </div>
                 <p className="text-lg text-muted-foreground mb-4 italic">
@@ -225,7 +228,7 @@ const Index = () => {
 
         {/* Bottom CTA */}
         <section className="py-16 border-t border-border">
-          <Card className="bg-primary/5 border-primary/20">
+          <Card className="glass-card border-primary/30">
             <CardContent className="p-8 text-center">
               <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-4">
                 Start your search with confidence — it's free.
@@ -233,7 +236,12 @@ const Index = () => {
               <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
                 Join thousands of smart shoppers who find exactly what they need with AI-powered recommendations.
               </p>
-              <Button size="lg" className="rounded-xl" onClick={() => document.querySelector('input')?.focus()}>
+              <Button 
+                size="lg" 
+                className="rounded-xl glow-effect" 
+                style={{ background: 'var(--gradient-primary)' }}
+                onClick={() => document.querySelector('input')?.focus()}
+              >
                 Try Foundit
               </Button>
             </CardContent>

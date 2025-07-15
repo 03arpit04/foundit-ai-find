@@ -48,7 +48,7 @@ const Results = () => {
       <Header />
       
       {/* Sticky Search Bar */}
-      <div className="sticky top-16 bg-background/95 backdrop-blur-sm border-b border-border z-40">
+      <div className="sticky top-16 glass-card border-b border-border z-40">
         <div className="max-w-4xl mx-auto px-4 py-4">
           <div className="relative">
             <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground h-5 w-5" />
@@ -56,9 +56,13 @@ const Results = () => {
               placeholder="What are you looking to buy today?"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-12 pr-12 h-12 text-base rounded-xl border-2 focus:border-primary"
+              className="pl-12 pr-12 h-12 text-base rounded-xl modern-input"
             />
-            <Button size="sm" className="absolute right-2 top-1/2 transform -translate-y-1/2 rounded-lg">
+            <Button 
+              size="sm" 
+              className="absolute right-2 top-1/2 transform -translate-y-1/2 rounded-lg glow-effect"
+              style={{ background: 'var(--gradient-primary)' }}
+            >
               <Send className="h-4 w-4" />
             </Button>
           </div>
@@ -95,7 +99,7 @@ const Results = () => {
                       )}
                     </div>
                     <div className="text-right">
-                      <div className="text-2xl font-semibold text-primary">
+                      <div className="text-2xl font-semibold gradient-text">
                         {product.price}
                       </div>
                     </div>
@@ -105,7 +109,10 @@ const Results = () => {
                     {product.explanation}
                   </p>
                   
-                  <Button className="rounded-lg">
+                  <Button 
+                    className="rounded-lg glow-effect"
+                    style={{ background: 'var(--gradient-accent)' }}
+                  >
                     Buy Now
                   </Button>
                 </div>
